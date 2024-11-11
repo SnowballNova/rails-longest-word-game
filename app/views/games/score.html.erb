@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <div class="card-body text-center">
+      <h2 class="mb-4 display-6 text-primary">Game Results</h2>
+
+      <p class="card-text lead">
+        <span class="fw-bold text-success">Message:</span> <%= @message %>
+      </p>
+
+      <p class="card-text fs-5">
+        <span class="fw-bold text-warning">Score:</span> <%= @score %> points
+      </p>
+
+      <p class="card-text fs-5">
+        <span class="fw-bold text-info">Time Taken:</span> <%= @time_taken.round(2) %> seconds
+      </p>
+
+      <%= link_to "Play Again", new_path, class: "btn btn-outline-primary mt-4 px-4" %>
+    </div>
+  </div>
+</div>

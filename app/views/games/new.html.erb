@@ -1,0 +1,21 @@
+<h2 class="mb-4">New Game</h2>
+
+<div class="d-flex flex-wrap m-4">
+  <% @letters.each do |letter| %>
+    <div class="letter-square p-3 m-3 text-center">
+      <%= letter %>
+    </div>
+  <% end %>
+</div>
+
+<%= form_with url: score_path, method: :post, local: true, data: { turbo: false }, class: "form-group" do %>
+  <%= hidden_field_tag :letters, @letters.join(",") %>
+  <%= hidden_field_tag :start_time, @start_time %>
+
+  <div class="mb-3">
+    <label for="new" class="form-label">Your word</label>
+    <%= text_field_tag :new, params[:new], placeholder: "Give a word...", class: "form-control", required: true %>
+  </div>
+
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+<% end %>
